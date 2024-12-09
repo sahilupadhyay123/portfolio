@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
 <style>
+    html {
+    scroll-behavior: smooth;
+}
+
     *{
         margin: 0;
         padding: 0;
@@ -20,7 +26,12 @@
         body.light-mode {
             background-color: #ffffff;
             color: #000000;
+            .right-heading h1{
+                color: white;
+
+            }
         }
+
 
         /* Dark Mode */
         body.dark-mode {
@@ -96,7 +107,7 @@
         footer {
             text-align: center;
             padding: 20px;
-            background: #f4f4f4;
+            background: white;
             color: #333;
         }
 
@@ -195,7 +206,7 @@
     .navbar {
         flex-direction: column;
         padding: 1rem;
-        background-color: #000000ab;
+        background-color: #000000;
     }
     .navbar a {
         font-size: 1.2rem;
@@ -218,22 +229,24 @@
 </style>
 <body class="light-mode">
     
-<id="First">
-    <div class="navbar">
-        <div class="right-heading"><h1  style="font-size: px;">Portfolio</h1></div>
-        <div class="left-content">
-            <a href="#Home">Home</a>
-            <a href="#About">About </a>
-            <a href="#Skills">Skills </a>
-            <a href="#Contact">Contact</a>
+    <header>
+        <div class="navbar">
+            <div class="right-heading">
+                <h1>Portfolio</h1>
+            </div>
+            <div class="left-content">
+                <a href="#Home">Home</a>
+                <a href="#About">About</a>
+                <a href="#Skills">Skills</a>
+                <a href="#Contact">Contact</a>
+            </div>
         </div>
-    </div>
-</section>
+    </header>
 
 <section id="Home">
     <div class="sec">
         <div class="left">
-            <img src="small sahil.jpg" alt=""  >
+            <img src="small sahil.jpg" alt="Portrait of Sahil Upadhyay smiling" loading="lazy">
         </div>
         <div class="right">
             <h2 style="font-size: 80px;">Hi! I am</h2>
@@ -248,7 +261,7 @@
         <div class="skills">
           <b>  About me</b>
         </div> <br><br><br>
-        <h1 style="color: #02afff;">Web developer</h1> <br><br><br>
+        <h1 style="color: #02afff;">Web developer</h1> <br>
         <p style="text-align: left;">Hello! I’m Sahil Upadhyay, a second-year BSc IT student passionate about technology and web development. My journey into the world of programming began with curiosity, and now it’s a growing passion.
 
             As a beginner web developer, I specialize in creating clean, responsive, and user-friendly websites. I have experience with HTML, CSS, and JavaScript and am eager to learn more advanced technologies.
@@ -286,48 +299,54 @@
 </section><br><br><br><br><br><br><hr>
 
 
-<section id="Contact"><br>
-<div class="Contacts">
-    <b  class="skills cls">Contact me</b>
- 
-    <form action="grid">
-        <input class="box" type="text" name="fname" id="fname" placeholder="Full name" required> <br><br>
-        <input class="box" type="email" name="fname" id="fname" placeholder="Email" required> <br><br>
-        <input class="box" type="number" name="fname" id="fname" placeholder="Phone number" required> <br><br>
-        <input class="box" type="text" name="fname" id="fname" placeholder="Subject" required> <br><br>
-        <input class="box your"  type="text" name="fname" id="fname" placeholder="Your message" required> <br><br>
-        <input type="submit" value="send message" name="fname" class="btn">
+ <section id="Contact">
+            <div class="Contacts">
+                <h1 class="skills">Contact Me</h1>
+                <form action="/submit" method="POST">
+                    <div class="input-box">
+                        <input class="box" type="text" name="fullname" placeholder="Full Name" required>
+                        <input class="box" type="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                        <input class="box" type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{10}" title="Enter a valid 10-digit phone number">
+                        <input class="box" type="text" name="subject" placeholder="Subject" required>
+<textarea class="box" name="message" placeholder="Your Message" required></textarea>
 
-    </form>
-</div>
-    </section><br><br><br><br><br><br><hr><br>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section><br><br><br><br><br><br><hr><br>
 
 
 
 
-<footer><button class="toggle-btn" onclick="toggleDarkMode()"><b>Dark Mode</b></button>
-    <script>
-        function toggleDarkMode() {
-            const body = document.body;
-
-            // Toggle dark-mode class on body
-            body.classList.toggle("dark-mode");
-            
-            // Save mode preference in localStorage
-            const isDarkMode = body.classList.contains("dark-mode");
-            localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
-        }
-
-        // Load and apply mode preference on page load
-        window.onload = () => {
-            const darkMode = localStorage.getItem("darkMode");
-            if (darkMode === "enabled") {
-                document.body.classList.add("dark-mode");
-            }
-        }
-    </script>
-     <p>&copy; 2024 Sahil Upadhyay. Designed with ❤️</p>
-     <a href="#top">Back to Top</a>
+<footer>
+    <button class="toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">Dark Mode</button>
+    <p>&copy; 2024 Sahil Upadhyay. Designed with ❤️</p>
+    <a href="#top">Back to Top</a>
 </footer>
+
+<script>
+    function toggleDarkMode() {
+    const body = document.body;
+    const button = document.querySelector(".toggle-btn");
+    body.classList.toggle("dark-mode");
+    const isDarkMode = body.classList.contains("dark-mode");
+    localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
+    button.textContent = isDarkMode ? "Light Mode" : "Dark Mode";
+}
+
+
+    window.onload = () => {
+        const darkMode = localStorage.getItem("darkMode");
+        if (darkMode === "enabled") {
+            document.body.classList.add("dark-mode");
+        }
+    };
+</script>
+<meta name="keywords" content="Sahil Upadhyay, Web Developer, Portfolio, HTML, CSS, JavaScript, React, Node.js, Python, Django">
+<meta name="description" content="Sahil Upadhyay is a web developer specializing in HTML, CSS, JavaScript, React, and Node.js. Explore my portfolio to learn more about my skills and projects.">
+<meta name="description" content="Sahil Upadhyay's portfolio showcasing web development skills and projects. Contact for collaborations.">
+<meta name="author" content="Sahil Upadhyay">
+
 </body>
 </html>
