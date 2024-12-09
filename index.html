@@ -326,23 +326,31 @@
 </footer>
 
 <script>
-    function toggleDarkMode() {
-    const body = document.body;
-    const button = document.querySelector(".toggle-btn");
-    body.classList.toggle("dark-mode");
-    const isDarkMode = body.classList.contains("dark-mode");
-    localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
-    button.textContent = isDarkMode ? "Light Mode" : "Dark Mode";
-}
-
-
     window.onload = () => {
+        // Set dark mode as default if no preference is saved
         const darkMode = localStorage.getItem("darkMode");
-        if (darkMode === "enabled") {
+
+        if (darkMode === "enabled" || (!darkMode && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.body.classList.add("dark-mode");
+            document.querySelector(".toggle-btn").textContent = "Light Mode";
+        } else {
+            document.body.classList.add("light-mode");
+            document.querySelector(".toggle-btn").textContent = "Dark Mode";
         }
     };
+
+    function toggleDarkMode() {
+        const body = document.body;
+        const button = document.querySelector(".toggle-btn");
+
+        body.classList.toggle("dark-mode");
+        const isDarkMode = body.classList.contains("dark-mode");
+        localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
+
+        button.textContent = isDarkMode ? "Light Mode" : "Dark Mode";
+    }
 </script>
+
 <meta name="keywords" content="Sahil Upadhyay, Web Developer, Portfolio, HTML, CSS, JavaScript, React, Node.js, Python, Django">
 <meta name="description" content="Sahil Upadhyay is a web developer specializing in HTML, CSS, JavaScript, React, and Node.js. Explore my portfolio to learn more about my skills and projects.">
 <meta name="description" content="Sahil Upadhyay's portfolio showcasing web development skills and projects. Contact for collaborations.">
