@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,91 +143,78 @@
             padding: 70px;
         }
 
-@media(max-width: 1285px){
-.skills{
-        grid-template-columns: repeat(2,1fr);
-        margin: 0 5rem;
+/* For Samsung Galaxy A51 and similar devices */
+@media (max-width: 360px) {
+    html {
+        font-size: 90%;
     }
-}
-@media(max-width: 991px){
-    section{
-        padding: 10rem 3% 2rem;
+    .navbar {
+        flex-direction: column;
+        text-align: center;
     }
-    .skills{
-        padding-bottom: 0px 10;
+    .navbar a {
+        font-size: 1.5rem;
     }
-    .footer{
-        padding-bottom: 2rem 3%;
+    .sec {
+        flex-direction: column;
+        text-align: center;
     }
-    .navbar{
-        padding: 2rem 3%;
-        background-color: #000000;
+    .left img {
+        width: 100%;
+        height: auto;
     }
-    .navbar a{
-        display: block;
+    .skills {
         font-size: 2rem;
+        text-align: center;
     }
 }
-@media(max-width: 895px){
-    html{
+
+/* For iPads and larger tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .navbar {
+        justify-content: space-between;
+    }
+    .navbar a {
+        font-size: 1.2rem;
+    }
+    .skills {
+        grid-template-columns: repeat(3, 1fr);
+        font-size: 2rem;
+        padding: 2rem;
+    }
+    .box {
+        width: 80%;
+    }
+}
+
+/* For general mobile devices */
+@media (max-width: 480px) {
+    html {
         font-size: 85%;
     }
-    .navbar{
-        display: block;
-        width: 100%;
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+        background-color: #000000;
     }
-    .right-heading{
-        align-content: center;
-        display: block;
-        justify-items: center;
-        font-size: 150%;
+    .navbar a {
+        font-size: 1.2rem;
+        padding: 10px 0;
     }
-    .left-content{
-        align-items:  center;
-        display: block;
-        justify-content: space-around;
-        align-items: center;
+    .sec {
+        flex-direction: column;
+        padding: 1rem;
+        text-align: center;
     }
-    .navbar a{
-        font-size: 150%;
+    .skills {
+        font-size: 2rem;
+        text-align: center;
     }
-    .sec{
-        display: block;
-        padding-left: 10%;
+    .box {
+        width: 50%;
     }
-    .left{
-        display: inline;
-        margin: 0%;
-        padding: 10%;
-        align-content: center;
-        height: 200px;
-    }
-    .left img{
-        margin: 0px;
-        justify-content: center;
 }
-    .right{
-        display: block;
-        justify-items: center;
-        padding: 0%;
-    }
-    .your{
-        padding:  50px;
 
-    }
-    .skills{
-        padding: 0%;
-        margin: 0%;
-    }
-    .box{
-        padding-left: 10%;
-        padding-right: 10%;
-    }
-    .cls{
-        padding-left: 10%;
-    }
-
-}
 </style>
 <body class="light-mode">
     
