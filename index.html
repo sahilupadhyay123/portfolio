@@ -1,10 +1,11 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sahil Upadhyay</title>
 </head>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -27,8 +28,7 @@
             background-color: #ffffff;
             color: #000000;
             .right-heading h1{
-                color: white;
-
+                color: #272626;
             }
         }
 
@@ -37,8 +37,10 @@
         body.dark-mode {
             background-color: #272626;
             color: #ffffff;
+            .right-heading h1{
+                color: rgb(255, 255, 255);
+            }
         }
-
         /* Toggle Button */
         .toggle-btn {
             position: fixed;
@@ -153,38 +155,16 @@
         .your{
             padding: 70px;
         }
-
-/* For Samsung Galaxy A51 and similar devices */
-@media (max-width: 360px) {
-    html {
-        font-size: 90%;
-    }
-    .navbar {
-        flex-direction: column;
-        text-align: center;
-    }
-    .navbar a {
-        font-size: 1.5rem;
-    }
-    .sec {
-        flex-direction: column;
-        text-align: center;
-    }
-    .left img {
-        width: 100%;
-        height: auto;
-    }
-    .skills {
-        font-size: 2rem;
-        text-align: center;
-    }
-}
+        .foot a{   color: #000000;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline;
+            padding: 5px 10px;
+        }
 
 /* For iPads and larger tablets */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .navbar {
-        justify-content: space-between;
-    }
+@media (max-width: 2024px) {
+
     .navbar a {
         font-size: 1.2rem;
     }
@@ -196,6 +176,11 @@
     .box {
         width: 80%;
     }
+    .foot a{
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
 }
 
 /* For general mobile devices */
@@ -204,14 +189,17 @@
         font-size: 85%;
     }
     .navbar {
-        flex-direction: column;
+        flex-direction: row;
         padding: 1rem;
-        background-color: #000000;
     }
     .navbar a {
         font-size: 1.2rem;
         padding: 10px 0;
     }
+    .right-heading h1{
+        color: rgb(255, 255, 255);
+        font-size: 50%;
+            }
     .sec {
         flex-direction: column;
         padding: 1rem;
@@ -220,21 +208,81 @@
     .skills {
         font-size: 2rem;
         text-align: center;
+        padding-top: 10%;
+        padding-bottom: 10%;
     }
     .box {
         width: 50%;
     }
+    .foot a{
+        flex-direction: column;
+        text-align: justify;
+        padding: 10px;
+    }
+    .navbar1 .left-content {
+        display: none;
+        flex-direction: column;
+        background-color: #272626;
+        position: absolute;     
+        top: 60px;
+        right: 10px;
+        width: 200px;
+        border-radius: 5px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+    }
+
+    .navbar1 .left-content a {
+        color: #ffffff;
+        padding: 10px;
+        border-bottom: 1px solid #444;
+        text-align: left;
+    }
+
+    .navbar1 .left-content a:last-child {
+        border-bottom: none;
+    }
+
+    .hamburger-icon {
+        display: block;
+        cursor: pointer;
+        font-size: 2.5rem;
+        color: #00aaff;
+    }        
+    .navbar1 .left-content a:hover {
+            color: #00aaff;
+            padding: 10px;
+            text-decoration: none;
+            transition: .5s;
+        }
 }
+@media (min-width: 680px) {
+    .hamburger-icon {
+        display: none;
+    }
+
+    .navbar1 .left-content {
+        display: flex;
+    }
+    
+} 
 
 </style>
 <body class="light-mode">
     
+    <section id="Home">
     <header>
-        <div class="navbar">
+        <div class="navbar1 navbar">
+            <!-- Portfolio heading -->
             <div class="right-heading">
-                <h1>Portfolio</h1>
+                <h1 style="font-size: 2.5rem;">Portfolio</h1>
             </div>
-            <div class="left-content">
+            
+            <!-- Hamburger icon for mobile -->
+            <div class="hamburger-icon" onclick="toggleMobileMenu()">☰</div>
+    
+            <!-- Menu items -->
+            <div class="left-content">  
                 <a href="#Home">Home</a>
                 <a href="#About">About</a>
                 <a href="#Skills">Skills</a>
@@ -243,7 +291,15 @@
         </div>
     </header>
 
-<section id="Home">
+        <!-- navbar script -->
+        <script>
+            function toggleMobileMenu() {
+                const leftContent = document.querySelector('.navbar1 .left-content');
+                leftContent.style.display = leftContent.style.display === 'flex' ? 'none' : 'flex';
+            }
+            </script>
+
+
     <div class="sec">
         <div class="left">
             <img src="small sahil.jpg" alt="Portrait of Sahil Upadhyay smiling" loading="lazy">
@@ -319,18 +375,29 @@
 
 
 
-<footer>
-    <button class="toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">Dark Mode</button>
-    <p>&copy; 2024 Sahil Upadhyay. Designed with ❤️</p>
-    <a href="#top">Back to Top</a>
-</footer>
+        <footer>
+
+            <div class="navbar">
+        
+                <div class="foot">
+                    <a href="#Home">Home</a>
+                    <a href="#About">About</a>
+                    <a href="#Skills">Skills</a>
+                    <a href="#Contact">Contact</a>
+                </div>
+            </div><br><br>
+        
+            <button class="toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">Dark Mode</button>
+            <p>&copy; 2024 Sahil Upadhyay. Designed with ❤️</p>
+            <a href="#top" style="scroll-behavior: smooth;">Back to Top</a>
+        </footer>   
 
 <script>
     function toggleDarkMode() {
     const body = document.body;
     const button = document.querySelector(".toggle-btn");
     body.classList.toggle("dark-mode");
-    const isDarkMode = body.classList.contains("dark-mode");
+    const isDarkMode = body.classList.contains("dark-mode");    
     localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
     button.textContent = isDarkMode ? "Light Mode" : "Dark Mode";   
 }
@@ -349,3 +416,4 @@
 
 </body>
 </html>
+<script async data-explicit-opt-in="true" data-cookie-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
