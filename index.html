@@ -12,17 +12,17 @@
     <style>
         html {
         scroll-behavior: smooth;
-    }
-    ::-webkit-scrollbar {
-    width: 10px;
-}
-::-webkit-scrollbar-thumb {
-    background: #00aaff;
-    border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #0aff02;
-}
+        }
+        ::-webkit-scrollbar {
+        width: 15px;
+        }
+        ::-webkit-scrollbar-thumb {
+        background: #00aaff;
+        border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+        background: #0aff02;
+        }
 
         *{
             margin: 0;
@@ -71,10 +71,10 @@
                 background-color: #b8e600;
             }
             .skills :hover {
-    color: #0aff02;
-    transform: scale(1.1);
-    text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
-    transition: all 0.5s ease; /* Fixed typo */
+            color: #0aff02;
+            transform: scale(1.1);
+            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
+            transition: all 0.5s ease; /* Fixed typo */
 }
 
         .navbar {
@@ -105,16 +105,7 @@
                 justify-content: center;
                 margin: 30px;
             }
-            img{
-                height: 400px;
-                filter: drop-shadow(0 0 20px #00f2ff);
-            }
-            img :hover{
-                color: #0aff02;
-    transform: scale(1);
-    text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
-    transition: all 0.5s ease; /* Fixed typo */
-            }
+
             .sec{
                 display: flex;
                 justify-content: space-around;
@@ -136,9 +127,9 @@
             }
             .foot  :hover{
                 color: #0aff02;
-    transform: scale(1);
-    text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
-    transition: all 0.5s ease; /* Fixed typo */
+            transform: scale(1);
+            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
+            transition: all 0.5s ease; /* Fixed typo */
             }
 
             footer a {
@@ -195,12 +186,7 @@
                 text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02; /* Add glowing effect */
                 transition: 0.5sec ease;
             }
-            img :hover{
-                color: #0aff02;
-    transform: scale(1);
-    text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
-    transition: all 0.5s ease; /* Fixed typo */
-            }
+
             /* Adjust CSS selectors */
 .right-heading h1 {
     color: inherit;
@@ -222,6 +208,10 @@
         .navbar a {
             font-size: 1.2rem;
         }
+        img{
+                height: 400px;
+                filter: drop-shadow(0 0 20px #00f2ff);
+            }
         .skills {
             grid-template-columns: repeat(3, 1fr);
             font-size: 2rem;
@@ -329,6 +319,20 @@
                 text-decoration: none;
                 transition: .5s;
             }
+            img{
+                height: 250px;
+                filter: drop-shadow(0 0 20px #00f2ff);
+            }
+            ::-webkit-scrollbar {
+        width: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+        background: #00aaff;
+        border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+        background: #0aff02;
+        }
     }
     @media (min-width: 680px) {
         .hamburger-icon {
@@ -338,8 +342,15 @@
         .navbar1 .left-content {
             display: flex;
         }
+
         
     } 
+    @media (max-width: 450px) {
+
+
+    }
+
+
 
     </style>
     <body class="light-mode">
@@ -473,13 +484,28 @@
                 <a href="#Home">Home</a>
                 <a href="#About">About</a>
                 <a href="#Skills">Skills</a>
+                <a href="#Projects">Projects</a>
                 <a href="#Contact">Contact</a>
             </div>
         </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <!-- Social Media Icons -->
+            <a href="https://www.linkedin.com/in/sahil-upadhyay-3346b927a" target="_blank" style="margin: 0 10px;">
+                <img src="https://www.pagetraffic.com/blog/wp-content/uploads/2022/09/linkedin-logo-icon-3D.png" alt="LinkedIn" style="height: 35px;">
+            </a>
+            <a href="https://github.com/sahilupadhyay123" target="_blank" style="margin: 0 10px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" style="height: 30px;">
+            </a>
+            <a href="https://instagram.com/iam.saahiil" target="_blank" style="margin: 0 10px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Twitter" style="height: 30px;">
+            </a>
+        </div>
+        <br><br>
         <button class="toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">Dark Mode</button>
         <p>&copy; 2024 Sahil Upadhyay. Designed with ❤️</p>
         <a href="#top">Back to Top</a>
     </footer>
+    
 
     
     <script>
