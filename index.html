@@ -1,533 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahil Upadhyay</title>
+</head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 
+<style>
+    html {
+    scroll-behavior: smooth;
+    }
+    ::-webkit-scrollbar {
+    width: 15px;
+    }
+    ::-webkit-scrollbar-thumb {
+    background: #00aaff;
+    border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+    background: #0aff02;
+    }
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sahil Upadhyay</title>
-    </head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-    <style>
-        html {
-        scroll-behavior: smooth;
-        }
-        ::-webkit-scrollbar {
-        width: 15px;
-        }
-        ::-webkit-scrollbar-thumb {
-        background: #00aaff;
-        border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-        background: #0aff02;
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    body{
+        transition: background-color 0.3s ease, color 0.3s ease;
+        
         }
 
-        *{
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        body{
-            transition: background-color 0.3s ease, color 0.3s ease;
-            }
-
-            /* Light Mode */
-            body.light-mode {
-                background-color: #ffffff;
+        /* Light Mode */
+        body.light-mode {
+            background-color: #ffffff;
+            color: #000000;
+            .navbar{
                 color: #000000;
-                .right-heading h1{
-                    color: #272626;
-                }
             }
+            .navbar .menu a{
+                color: #000000;
+            }
+            
+        }
+        /* Dark Mode */
+        body.dark-mode {
+            background-color: #000000;
+            color: #ffffff;
+            .navbar{
+                color: rgb(255, 255, 255);
+            }
+            .navbar .menu a{
+                color: #00d9ff;
+            }
+        }
+        /* Toggle Button */
+        .toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #00aaff;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
 
-
-            /* Dark Mode */
-            body.dark-mode {
-                background-color: #000000;
-                color: #ffffff;
-                .right-heading h1{
-                    color: rgb(255, 255, 255);
-                }
-            }
-            /* Toggle Button */
-            .toggle-btn {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                background-color: #00aaff;
-                color: #fff;
-                border: none;
-                border-radius: 20px;
-                padding: 10px 20px;
-                font-size: 1rem;
-                cursor: pointer;
-                outline: none;
-                transition: background-color 0.3s ease;
-            }
-
-            .toggle-btn:hover {
-                background-color: #b8e600;
-            }
-            .skills :hover {
-            color: #0aff02;
-            transform: scale(1.1);
-            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
-            transition: all 0.5s ease; /* Fixed typo */
+        .toggle-btn:hover {
+            background-color: #b8e600;
+        }
+        .skills :hover {
+        color: #0aff02;
+        transform: scale(1.1);
+        text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
+        transition: all 0.5s ease; /* Fixed typo */
 }
-
         .navbar {
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                padding: 10px 20px;
-            }
-            /* Left content (e.g., links) */
-            .navbar .left-content {
-                display: flex;
-                gap: 15px;
-            }
-
-            .navbar .left-content a {
-                color: #00f2ff;
-                font-weight: bold;
-                padding: 5px 10px;
-                text-decoration: none;
-            }
-            .navbar .left-content a:hover {
-                color: #0aff02; /* Change to a vibrant green */
-                transform: scale(1.1); /* Slightly enlarge the element */
-                text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02; /* Add glowing effect */
-                transition: 0.5sec ease;
-            }
-            .left{
-                justify-content: center;
-                margin: 30px;
-            }
-
-            .sec{
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-            }
-            .skills{
-                font-size: 50px;
-                display: block;
-            }
-            .cls{
-                padding-left: 10%;
-                padding-right: 10%;
-            }
-            footer {
-                text-align: center;
-                background: white;
-                color: #333;
-            }
-            .foot  :hover{
-                color: #0aff02;
-            transform: scale(1);
-            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
-            transition: all 0.5s ease; /* Fixed typo */
-            }
-
-            footer a {
-                color: #007BFF;
-                text-decoration: none;
-            }
-            .Contacts {
-                justify-items: center;
-            }
-            .Contacts form {
-                max-width: 70rem;
-                margin: 1rem auto;
-                text-align: center;
-                margin-bottom: 3rem;
-            }
-            .Contacts form .input-box{
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            .box{
-                width: 60%;
-                padding: 15px;
-                font-size: 1rem;
-                color: #00f2ff;
-                background-color: black;
-                border-radius: 0.8rem ;
-                border: 2px solid rgb(0, 204, 255);
-                margin: 6px 0;
-                resize: none;
-            }
-            .btn{
-                bottom: 20px;
-                right: 20px;
-                background-color: #00aaff;
-                color: #fff;
-                border: none;
-                border-radius: 20px;
-                padding: 10px 20px;
-                font-size: 1rem;
-            }
-            .your{
-                padding: 70px;
-            }
-            .foot a{   color: #000000;
-                font-weight: bold;
-                text-decoration: none;
-                display: inline;
-                padding: 5px 10px;
-            }
-            .footer a :hover{
-                color: #0aff02; /* Change to a vibrant green */
-                transform: scale(1.1); /* Slightly enlarge the element */
-                text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02; /* Add glowing effect */
-                transition: 0.5sec ease;
-            }
-
-            /* Adjust CSS selectors */
-.right-heading h1 {
-    color: inherit;
-}
-
-/* Fix glowing hover effect (p:hover) */
-.skills:hover {
-    color: #0aff02;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 20px;
+            color: white;
+        }
+        .navbar .logo {
+            font-size: 1.5em;
+        }
+        .navbar .logo :hover{
+            color: #0aff02;
     transform: scale(1);
     text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
     transition: all 0.5s ease; /* Fixed typo */
-}
-
-    /* For iPads and larger tablets */
-    @media (max-width: 2024px) {
-        .right-heading{
-            font-size: x-large;
         }
-        .navbar a {
+        .navbar .menu {
+            display: flex;
+            gap: 20px;
             font-size: 1.2rem;
         }
+        .navbar .menu a {
+                font-weight: bold;
+                padding: 5px 10px;
+                text-decoration: none;
+        }
+        .navbar .menu a:hover {
+            color: #0aff02; /* Change to a vibrant green */
+                transform: scale(1.1); /* Slightly enlarge the element */
+                text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02; /* Add glowing effect */
+                transition: 0.9sec ease;
+        }
+        .navbar .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .navbar .hamburger div {
+            width: 29px;
+            height: 5px;
+            background-color:#00b3ff;
+        }
+        .menu {
+            display: flex;
+        }
+        .hi{
+            font-size: 80px;
+        }
+        .sahil{
+            font-size: 50px;
+            color: #ff6a00;
+
+        }
+
+        .left{
+            justify-content: center;
+            margin: 30px;
+        }
+
+        .sec{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .skills{
+            font-size: 50px;
+            display: block;
+        }
+        .cls{
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+        footer {
+            text-align: center;
+            background: white;
+            color: #333;
+        }
+        .foot  :hover{
+            color: #0aff02;
+        transform: scale(1);
+        text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
+        transition: all 0.5s ease; /* Fixed typo */
+        }
+
+        footer a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .Contacts {
+            justify-items: center;
+        }
+        .Contacts form {
+            max-width: 70rem;
+            margin: 1rem auto;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .Contacts form .input-box{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .box{
+            width: 60%;
+            padding: 15px;
+            font-size: 1rem;
+            color: #00f2ff;
+            background-color: black;
+            border-radius: 0.8rem ;
+            border: 2px solid rgb(0, 204, 255);
+            margin: 6px 0;
+            resize: none;
+        }
+        .btn{
+            bottom: 20px;
+            right: 20px;
+            background-color: #00aaff;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+        .your{
+            padding: 70px;
+        }
+        .foot a{   color: #000000;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline;
+            padding: 5px 10px;
+        }
+        .footer a :hover{
+            color: #0aff02; /* Change to a vibrant green */
+            transform: scale(1.1); /* Slightly enlarge the element */
+            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02; /* Add glowing effect */
+            transition: 0.5sec ease;
+        }
+
+/* Fix glowing hover effect (p:hover) */
+        .skills:hover {
+            color: #0aff02;
+            transform: scale(1);
+            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
+            transition: all 0.5s ease; /* Fixed typo */
+        }
+
         img{
-                height: 400px;
-                filter: drop-shadow(0 0 20px #00f2ff);
-            }
+            height: 400px;
+            filter: drop-shadow(0 0 20px #00f2ff);
+        }
         .skills {
             grid-template-columns: repeat(3, 1fr);
             font-size: 2rem;
             padding: 2rem;
         }
         .skills :hover {
-    color: #0aff02;
-    transform: scale(1.1);
-    text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
-    transition: all 0.5s ease; /* Fixed typo */
-}
-        .box {
-            width: 80%;
-        }
-        .foot a{
-            flex-direction: column;
-            text-align: center;
-            padding: 10px;
-        }
-        .footer a :hover{
-            
-            color: #0aff02; /* Change to a vibrant green */
-                transform: scale(1.1); /* Slightly enlarge the element */
-                text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02; /* Add glowing effect */
-                transition: 0.5sec ease;
-            
-        }
-        .right-heading :hover{
             color: #0aff02;
-    transform: scale(1);
-    text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
-    transition: all 0.5s ease; /* Fixed typo */
+            transform: scale(1.1);
+            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
+            transition: all 0.5s ease; /* Fixed typo */
         }
+    .box {
+        width: 80%;
+    }
+    .foot a{
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+    .footer a :hover{
+        
+        color: #0aff02; /* Change to a vibrant green */
+            transform: scale(1.1); /* Slightly enlarge the element */
+            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02; /* Add glowing effect */
+            transition: 0.5sec ease;
+    }
+/* For general mobile devices */
+@media (max-width: 680px) {
+    html {
+        font-size: 85%;
+    }
+    .navbar{
+        font-size: 70%;
+    }
+    .sec {
+        flex-direction: column;
+        padding: 2rem;
+        text-align: center;
+    }
+    .hi{
+        font-size: 200%;
+    }
+    .sahil{
+        font-size: 290%;
+        padding: auto;
     }
 
-    /* For general mobile devices */
-    @media (max-width: 680px) {
-        html {
-            font-size: 85%;
+    .skills {
+        font-size: 2.5rem;
+        text-align: center;
+        padding-top: 10%;
+        padding-bottom: 10%;
+    }
+    .box {
+        width: 50%;
+    }
+    .foot a{
+        font-size: small;
+        flex-direction: column;
+        text-align: justify;
+        padding: 5px;
+    }
+       
+        img{
+            height: 250px;
+            filter: drop-shadow(0 0 20px #00f2ff);
         }
-        .navbar {
-            flex-direction: row;
-            padding: 1rem;
-        }
-        .navbar a {
-            font-size: 1.2rem;
-            padding: 10px 0;
-        }
-        .right-heading h1{
-            color: rgb(255, 255, 255);
-            font-size: larger;
-                }
-        .sec {
-            flex-direction: column;
-            padding: 1rem;
-            text-align: center;
-        }
-        .skills {
-            font-size: 2.5rem;
-            text-align: center;
-            padding-top: 10%;
-            padding-bottom: 10%;
-        }
-        .box {
-            width: 50%;
-        }
-        .foot a{
-            flex-direction: column;
-            text-align: justify;
-            padding: 5px;
-        }
-        .navbar1 .left-content {
-            display: none;
-            flex-direction: column;
-            background-color: #272626;
-            position: absolute;     
-            top: 60px;
-            right: 10px;
-            width: 200px;
-            border-radius: 5px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-        }
-
-        .navbar1 .left-content a {
-            color: #ffffff;
-            padding: 10px;
-            border-bottom: 1px solid #444;
-            text-align: left;
-        }
-
-        .navbar1 .left-content a:last-child {
-            border-bottom: none;
-        }
-
-        .hamburger-icon {
-            display: block;
-            cursor: pointer;
-            font-size: 2.5rem;
-            color: #00aaff;
-        }        
-        .navbar1 .left-content a:hover {
-                color: #00aaff;
+        ::-webkit-scrollbar {
+    width: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+    background: #00aaff;
+    border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+    background: #0aff02;
+    }
+    .footer{
+        padding: 0;
+    }
+    .navbar .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 50px;
+                right: 50px;
+                border-radius: 5px;
                 padding: 10px;
-                text-decoration: none;
-                transition: .5s;
+                box-shadow: 0px 4px 6px rgb(208, 26, 26);
             }
-            img{
-                height: 250px;
-                filter: drop-shadow(0 0 20px #00f2ff);
+            .navbar .menu.active {
+                display: flex;
             }
-            ::-webkit-scrollbar {
-        width: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-        background: #00aaff;
-        border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-        background: #0aff02;
-        }
-        .footer{
-            padding: 0;
-        }
-    }
-    @media (min-width: 680px) {
-        .hamburger-icon {
-            display: none;
-        }
-
-        .navbar1 .left-content {
-            display: flex;
-        }
-
-        
-    } 
-
-
-
-
-    </style>
-    <body class="light-mode">
-        
-            <header>
-                <div class="navbar1 navbar">
-                    <!-- Portfolio heading -->
-                    <div class="right-heading">
-                        <h1 class="portfolio-heading">Portfolio</h1>
-                    </div>
-    
-                    <!-- Hamburger icon for mobile -->
-                    <div class="hamburger-icon" onclick="toggleMobileMenu()">☰</div>
-    
-                    <!-- Menu items -->
-                    <div class="left-content">  
-                        <a href="#Home">Home</a>
-                        <a href="#About">About</a>
-                        <a href="#Skills">Skills</a>
-                        <a href="#Contact">Contact</a>
-                    </div>
-                </div>
-            </header>
-
-            <!-- navbar script -->
-            <script>
-               function toggleMobileMenu() {
-    const leftContent = document.querySelector('.navbar1 .left-content');
-    const isMobile = window.innerWidth <= 680; // Check if screen width is 680px or less
-
-    // Toggle visibility of menu
-    leftContent.style.display = leftContent.style.display === 'flex' ? 'none' : 'flex';
-
-    if (isMobile) {
-        // Close the menu if a link is clicked (for mobile only)
-        leftContent.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                leftContent.style.display = 'none';
-            });
-        });
-
-        // Close the menu if clicked outside (for mobile only)
-        document.addEventListener("click", (event) => {
-            if (!event.target.closest(".hamburger-icon") && !event.target.closest(".left-content")) {
-                leftContent.style.display = "none";
+            .navbar .hamburger {
+                display: flex;
             }
-        }, { once: true }); // Ensure the event listener triggers only once
-    }
-}
-
-                </script>
-
-    <section id="Home">
-        <div class="sec">
-            <div class="left">
-                <img src="small sahil.jpg" alt="Portrait of Sahil Upadhyay" loading="lazy">
-            </div>
-            <div class="right">
-                <h2 style="font-size: 80px;">Hi! I am</h2>
-                <h3 style="font-size: 50px; color: #ff6a00;"><center>Sahil Upadhyay</center></h3>
-                <h2>Welcome to my profile.</h2>
-            </div>
-        </div>
-    </section><br><br><hr>
-
-    <section id="About"><br>
-        <div class="cls">
-            <div class="skills">
-            <b>  About me</b>
-            </div> <br><br><br>
-            <h1 style="color: #02afff;">Web developer</h1> <br>
-            <p style="text-align: left;">Hello! I’m Sahil Upadhyay, a second-year BSc IT student passionate about technology and web development. My journey into the world of programming began with curiosity, and now it’s a growing passion.
-
-                As a beginner web developer, I specialize in creating clean, responsive, and user-friendly websites. I have experience with HTML, CSS, and JavaScript and am eager to learn more advanced technologies.
-                
-                I’m actively building projects that demonstrate my skills and problem-solving abilities. Through my portfolio, I aim to connect with individuals and businesses looking for creative and functional websites.
-                
-                I believe in continuous learning and staying updated with the latest trends in web development. My goal is to grow as a developer while delivering value to my clients.
-                
-                Feel free to explore my portfolio, and don’t hesitate to reach out if you’d like to work together!
-                </p>
-        </div>
-    </section><br><br><br><br><br><br><hr><br>
-
-
-
-    <section id="Skills" ><br>
-        <div class="cls" style="padding-left: 10%;">
-            <h1 class="skills">Skills</h1><br>
-            <h1 style="color: #02afff;">Technical Skills</h1> <br>       <ul>
-                <li>HTML, CSS, JavaScript</li>
-                <li>React, Node.js</li>
-                <li>Python, Django</li>
-            </ul><br><br>
-            <h1 style="color: #02afff;">Soft Skills</h1> <br>    <ul>
-                <ul>
-                <li>Teamwork</li>
-                <li>Problem-Solving</li>
-                <li>Adaptability</li>
-            </ul><br><br>
-            <h1 style="color: #02afff;">Certifications</h1> <br>       <ul>
-                <ul>
-                <li>Certified Web Developer - XYZ Academy</li>
-            </ul>
-        </div>
-    </section><br><br><br><br><br><br><hr>
-
-
-    <section id="Contact">
-        <div class="Contacts">
-            <h1 class="skills">Contact Me</h1>
-            <form action="/submit" method="POST">
-                <div class="input-box">
-                    <input class="box" type="text" name="fullname" placeholder="Full Name" required>
-                    <input class="box" type="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-                    <input class="box" type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{10}" title="Enter a valid 10-digit phone number">
-                    <input class="box" type="text" name="subject" placeholder="Subject" required>
-                    <textarea class="box" name="message" placeholder="Your Message" required></textarea>
-                </div>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-        </div>
-    </section><br><br><br><br><br><br><hr>
+        }
 
 
 
 
-    <footer>
-        <div class="navbar">
-            <div class="foot">
-                <a href="#Home">Home</a>
-                <a href="#About">About</a>
-                <a href="#Skills">Skills</a>
-                <a href="#Contact">Contact</a>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 5px;">
-            <!-- Social Media Icons -->
-            <a href="https://www.linkedin.com/in/sahil-upadhyay-3346b927a" target="_blank" style="margin: 0 10px;">
-                <img src="https://www.pagetraffic.com/blog/wp-content/uploads/2022/09/linkedin-logo-icon-3D.png" alt="LinkedIn" style="height: 35px;">
-            </a>
-            <a href="https://github.com/sahilupadhyay123" target="_blank" style="margin: 0 10px;">
-                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" style="height: 30px;">
-            </a>
-            <a href="https://instagram.com/iam.saahiil" target="_blank" style="margin: 0 10px;">
-                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Twitter" style="height: 30px;">
-            </a>
-        </div>
-        <br>
-        <button class="toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">Dark Mode</button>
-        <p>&copy; 2024 Sahil Upadhyay. Designed with ❤️</p>
-        <a href="#top">Back to Top</a><br> <br>
-    </footer>
+</style>
+<body class="light-mode">
     
-
+    <div class="navbar">
+        <div class="logo"><h1>Portfolio</h1></div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="menu">
+            <a href="#Home">Home</a>
+            <a href="#About">About</a>
+            <a href="#Skills">Skills</a>
+            <a href="#Contact">Contact</a>
+        </div>
+    </div>
     
     <script>
-        function toggleDarkMode() {
-        const body = document.body;
-        const button = document.querySelector(".toggle-btn");
-        body.classList.toggle("dark-mode");
-        const isDarkMode = body.classList.contains("dark-mode");    
-        localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
-        button.textContent = isDarkMode ? "Light Mode" : "Dark Mode";   
-    }
-
-
-    window.onload = () => {
-        document.body.classList.add("dark-mode"); // Force Dark Mode by default
-        document.querySelector(".toggle-btn").textContent = "Light Mode"; // Update button text
-    };
-
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
     </script>
-    <meta name="keywords" content="Sahil Upadhyay, Web Developer, Portfolio, HTML, CSS, JavaScript, React, Node.js, Python, Django">
-    <meta name="description" content="Sahil Upadhyay is a web developer specializing in HTML, CSS, JavaScript, React, and Node.js. Explore my portfolio to learn more about my skills and projects.">
-    <meta name="description" content="Sahil Upadhyay's portfolio showcasing web development skills and projects. Contact for collaborations.">
-    <meta name="author" content="Sahil Upadhyay">
 
-    </body>
-    </html>
-    <script async data-explicit-opt-in="true" data-cookie-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
+<section id="Home">
+    <div class="sec">
+        <div class="left">
+            <img src="small sahil.jpg" alt="Portrait of Sahil Upadhyay" loading="lazy">
+        </div>
+        <div class="right">
+            <h2 class="hi">Hi! I am</h2>
+            <h3 class="sahil"><center>Sahil Upadhyay</center></h3>
+            <h2>Welcome to my profile.</h2>
+        </div>
+    </div>
+</section><br><br><hr>
+
+<section id="About"><br>
+    <div class="cls">
+        <div class="skills">
+        <b>  About me</b>
+        </div> <br><br><br>
+        <h1 style="color: #02afff;">Web developer</h1> <br>
+        <p style="text-align: left;">Hello! I’m Sahil Upadhyay, a second-year BSc IT student passionate about technology and web development. My journey into the world of programming began with curiosity, and now it’s a growing passion.
+
+            As a beginner web developer, I specialize in creating clean, responsive, and user-friendly websites. I have experience with HTML, CSS, and JavaScript and am eager to learn more advanced technologies.
+            
+            I’m actively building projects that demonstrate my skills and problem-solving abilities. Through my portfolio, I aim to connect with individuals and businesses looking for creative and functional websites.
+            
+            I believe in continuous learning and staying updated with the latest trends in web development. My goal is to grow as a developer while delivering value to my clients.
+            
+            Feel free to explore my portfolio, and don’t hesitate to reach out if you’d like to work together!
+            </p>
+    </div>
+</section><br><br><br><br><br><br><hr><br>
+
+
+
+<section id="Skills" ><br>
+    <div class="cls" style="padding-left: 10%;">
+        <h1 class="skills">Skills</h1><br>
+        <h1 style="color: #02afff;">Technical Skills</h1> <br>       <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>React, Node.js</li>
+            <li>Python, Django</li>
+        </ul><br><br>
+        <h1 style="color: #02afff;">Soft Skills</h1> <br>    <ul>
+            <ul>
+            <li>Teamwork</li>
+            <li>Problem-Solving</li>
+            <li>Adaptability</li>
+        </ul><br><br>
+        <h1 style="color: #02afff;">Certifications</h1> <br>       <ul>
+            <ul>
+            <li>Certified Web Developer - XYZ Academy</li>
+        </ul>
+    </div>
+</section><br><br><br><br><br><br><hr>
+
+
+<section id="Contact">
+    <div class="Contacts">
+        <h1 class="skills">Contact Me</h1>
+        <form action="/submit" method="POST">
+            <div class="input-box">
+                <input class="box" type="text" name="fullname" placeholder="Full Name" required>
+                <input class="box" type="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                <input class="box" type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{10}" title="Enter a valid 10-digit phone number">
+                <input class="box" type="text" name="subject" placeholder="Subject" required>
+                <textarea class="box" name="message" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </div>
+</section><br><br><br><br><br><br><hr>
+
+
+
+
+<footer>
+    <div class="navbar">
+        <div class="foot">
+            <a href="#Home">Home</a>
+            <a href="#About">About</a>
+            <a href="#Skills">Skills</a>
+            <a href="#Contact">Contact</a>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 5px;">
+        <!-- Social Media Icons -->
+        <a href="https://www.linkedin.com/in/sahil-upadhyay-3346b927a" target="_blank" style="margin: 0 10px;">
+            <img src="https://www.pagetraffic.com/blog/wp-content/uploads/2022/09/linkedin-logo-icon-3D.png" alt="LinkedIn" style="height: 35px;">
+        </a>
+        <a href="https://github.com/sahilupadhyay123" target="_blank" style="margin: 0 10px;">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" style="height: 30px;">
+        </a>
+        <a href="https://instagram.com/iam.saahiil" target="_blank" style="margin: 0 10px;">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Twitter" style="height: 30px;">
+        </a>
+    </div>
+    <br>
+    <button class="toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">Dark Mode</button>
+    <p>&copy; 2024 Sahil Upadhyay. Designed with ❤️</p>
+    <a href="#top">Back to Top</a><br> <br>
+</footer>
+
+
+
+<script>
+    function toggleDarkMode() {
+    const body = document.body;
+    const button = document.querySelector(".toggle-btn");
+    body.classList.toggle("dark-mode");
+    const isDarkMode = body.classList.contains("dark-mode");    
+    localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
+    button.textContent = isDarkMode ? "Light Mode" : "Dark Mode";   
+}
+
+
+window.onload = () => {
+    document.body.classList.add("dark-mode"); // Force Dark Mode by default
+    document.querySelector(".toggle-btn").textContent = "Light Mode"; // Update button text
+};
+
+</script>
+<meta name="keywords" content="Sahil Upadhyay, Web Developer, Portfolio, HTML, CSS, JavaScript, React, Node.js, Python, Django">
+<meta name="description" content="Sahil Upadhyay is a web developer specializing in HTML, CSS, JavaScript, React, and Node.js. Explore my portfolio to learn more about my skills and projects.">
+<meta name="description" content="Sahil Upadhyay's portfolio showcasing web development skills and projects. Contact for collaborations.">
+<meta name="author" content="Sahil Upadhyay">
+
+</body>
+</html>
+<script async data-explicit-opt-in="true" data-cookie-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
