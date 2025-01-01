@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sahil Upadhyay</title>
+    <title>Sahil Upadhyay</title> 
 </head>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -42,6 +42,9 @@
             .navbar .menu a{
                 color: #000000;
             }
+            .navbar .menu {
+                background-color: white;
+            }
             
         }
         /* Dark Mode */
@@ -52,7 +55,10 @@
                 color: rgb(255, 255, 255);
             }
             .navbar .menu a{
-                color: #00d9ff;
+                color: #00ff55;
+            }
+               .navbar .menu {
+                background-color: black;
             }
         }
         /* Toggle Button */
@@ -92,25 +98,30 @@
         }
         .navbar .logo :hover{
             color: #0aff02;
-    transform: scale(1);
-    text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
-    transition: all 0.5s ease; /* Fixed typo */
+            transform: scale(1);
+            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
+            transition: all 0.5s ease; /* Fixed typo */
         }
         .navbar .menu {
             display: flex;
             gap: 20px;
             font-size: 1.2rem;
+            z-index: 2;
+            background-color: #000000;
         }
         .navbar .menu a {
                 font-weight: bold;
                 padding: 5px 10px;
                 text-decoration: none;
+                border: 2px rgba(0, 128, 0, 0) solid;
+
         }
         .navbar .menu a:hover {
-            color: #0aff02; /* Change to a vibrant green */
-                transform: scale(1.1); /* Slightly enlarge the element */
-                text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02; /* Add glowing effect */
-                transition: 0.9sec ease;
+            color: #0aff02;
+            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
+            transition: all 0.5s ease; /* Fixed typo */
+            transform: scale(1.3); /* Slightly enlarge the element */
+            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02; /* Add glowing effect */
         }
         .navbar .hamburger {
             display: none;
@@ -139,6 +150,9 @@
             justify-content: center;
             margin: 30px;
         }
+        .about{
+            padding: 300px;
+        }
 
         .sec{
             display: flex;
@@ -150,27 +164,15 @@
             display: block;
         }
         .cls{
+            padding: 10px 10px 100px;
+        }
+        .cls{
             padding-left: 10%;
             padding-right: 10%;
         }
-        footer {
-            text-align: center;
-            background: white;
-            color: #333;
-        }
-        .foot  :hover{
-            color: #0aff02;
-        transform: scale(1);
-        text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
-        transition: all 0.5s ease; /* Fixed typo */
-        }
-
-        footer a {
-            color: #007BFF;
-            text-decoration: none;
-        }
         .Contacts {
             justify-items: center;
+            padding: 0px 0px 100px;
         }
         .Contacts form {
             max-width: 70rem;
@@ -246,18 +248,16 @@
     .box {
         width: 80%;
     }
-    .foot a{
-        flex-direction: column;
-        text-align: center;
-        padding: 10px;
-    }
-    .footer a :hover{
-        
-        color: #0aff02; /* Change to a vibrant green */
-            transform: scale(1.1); /* Slightly enlarge the element */
-            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02; /* Add glowing effect */
-            transition: 0.5sec ease;
-    }
+    footer { text-align: center; padding: 20px; background: #f8f9fa; }
+        footer a { color: #007BFF; text-decoration: none; }
+        footer a:hover { color: #0aff02; transform: scale(1.1); }
+
+    input:focus, textarea:focus {
+    border-color: #00ff55;
+    box-shadow: 0 0 8px #0aff02;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
 /* For general mobile devices */
 @media (max-width: 680px) {
     html {
@@ -328,11 +328,13 @@
             .navbar .hamburger {
                 display: flex;
             }
+            .box {
+        width: 90%; /* Wider input fields */
         }
+        form {
+        padding: 1rem; /* Adjust form padding */
 
-
-
-
+        }
 </style>
 <body class="light-mode">
     
@@ -356,6 +358,7 @@
             const menu = document.querySelector('.menu');
             menu.classList.toggle('active');
         }
+        
     </script>
 
 <section id="Home">
@@ -388,7 +391,7 @@
             Feel free to explore my portfolio, and don’t hesitate to reach out if you’d like to work together!
             </p>
     </div>
-</section><br><br><br><br><br><br><hr><br>
+</section><hr>
 
 
 
@@ -411,7 +414,7 @@
             <li>Certified Web Developer - XYZ Academy</li>
         </ul>
     </div>
-</section><br><br><br><br><br><br><hr>
+</section><hr>
 
 
 <section id="Contact">
@@ -424,11 +427,52 @@
                 <input class="box" type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{10}" title="Enter a valid 10-digit phone number">
                 <input class="box" type="text" name="subject" placeholder="Subject" required>
                 <textarea class="box" name="message" placeholder="Your Message" required></textarea>
+                <input type="file" name="attachment" class="box" accept=".pdf,.docx,.jpg,.png">
+
             </div>
             <button type="submit" class="btn">Send Message</button>
         </form>
+        <div id="loading" style="display:none;">Submitting...</div>
     </div>
-</section><br><br><br><br><br><br><hr>
+<script>
+document.querySelector('form').addEventListener('submit', function (e) {
+    document.getElementById('loading').style.display = 'block';
+});
+</script>
+
+        
+    </div>
+    <script>
+      document.querySelector('form').addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent form submission to validate fields
+
+    let isValid = true;
+
+    // Validate email
+    const email = document.querySelector('input[name="email"]');
+    if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+        isValid = false;
+        alert("Please enter a valid email address.");
+    }
+
+    // Validate phone number
+    const phone = document.querySelector('input[name="phone"]');
+    if (!phone.value.match(/^\d{10}$/)) {
+        isValid = false;
+        alert("Please enter a valid 10-digit phone number.");
+    }
+
+    // If all fields are valid, submit the form
+    if (isValid) {
+        alert("Thank you for your message! I'll get back to you soon.");
+        this.submit(); // Submit the form
+    }
+});
+
+
+
+    </script>
+</section><hr>
 
 
 
@@ -456,7 +500,7 @@
     </div>
     <br>
     <button class="toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">Dark Mode</button>
-    <p>&copy; 2024 Sahil Upadhyay. Designed with ❤️</p>
+    <p style="color: #000000;">&copy; 2024 Sahil Upadhyay. Designed with ❤️</p>
     <a href="#top">Back to Top</a><br> <br>
 </footer>
 
@@ -481,7 +525,6 @@ window.onload = () => {
 </script>
 <meta name="keywords" content="Sahil Upadhyay, Web Developer, Portfolio, HTML, CSS, JavaScript, React, Node.js, Python, Django">
 <meta name="description" content="Sahil Upadhyay is a web developer specializing in HTML, CSS, JavaScript, React, and Node.js. Explore my portfolio to learn more about my skills and projects.">
-<meta name="description" content="Sahil Upadhyay's portfolio showcasing web development skills and projects. Contact for collaborations.">
 <meta name="author" content="Sahil Upadhyay">
 
 </body>
