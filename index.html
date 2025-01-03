@@ -6,46 +6,33 @@
     <title>Sahil Upadhyay</title> 
 </head>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
-
 <style>
     html {
     scroll-behavior: smooth;
+    font-size: 100%; /* Default font size */
     }
     ::-webkit-scrollbar {
-    width: 15px;
+    width: 10px;
     }
     ::-webkit-scrollbar-thumb {
     background: #00aaff;
-    border-radius: 5px;
+    border-radius: 0px;
     }
     ::-webkit-scrollbar-thumb:hover {
     background: #0aff02;
     }
-
     *{
         margin: 0;
         padding: 0;
         font-family: Arial, Helvetica, sans-serif;
     }
     body{
-        transition: background-color 0.3s ease, color 0.3s ease;
-        
+        transition: background-color 0.3s ease, color 0.3s ease;   
         }
-
         /* Light Mode */
         body.light-mode {
             background-color: #ffffff;
-            color: #000000;
-            .navbar{
-                color: #000000;
-            }
-            .navbar .menu a{
-                color: #000000;
-            }
-            .navbar .menu {
-                background-color: white;
-            }
-            
+            color: #000000;   
         }
         /* Dark Mode */
         body.dark-mode {
@@ -54,98 +41,93 @@
             .navbar{
                 color: rgb(255, 255, 255);
             }
-            .navbar .menu a{
-                color: #00ff55;
-            }
-               .navbar .menu {
-                background-color: black;
-            }
         }
         /* Toggle Button */
         .toggle-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #00aaff;
-            color: #fff;
-            border: none;
-            border-radius: 20px;
-            padding: 10px 20px;
-            font-size: 1rem;
-            cursor: pointer;
-            outline: none;
-            transition: background-color 0.3s ease;
-        }
-
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
         .toggle-btn:hover {
             background-color: #b8e600;
         }
-        .skills :hover {
-        color: #0aff02;
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: var(--navbar-bg, #201f1f);
+        color: var(--navbar-text, #fff);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .logo h1 {
+        margin: 0;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: var(--logo-color, #00ff55);
+    }
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+    .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: var(--hamburger-color, #fff);
+        transition: transform 0.3s ease;
+    }
+    .menu {
+        display: flex;
+        gap: 20px;
+        transition: transform 0.3s ease;
+    }
+    .nav-link {
+        font-weight: bold;
+        padding: 5px 10px;
+        text-decoration: none;
+        color: var(--nav-link-color, #fff);
+        border-bottom: 2px solid transparent;
+    }
+    .nav-link:hover {
+        color: var(--nav-link-hover, #0aff02);
+        border-color: var(--nav-link-hover, #0aff02);
+        text-shadow: 0px 0px 8px #0aff02;
         transform: scale(1.1);
-        text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
-        transition: all 0.5s ease; /* Fixed typo */
-}
-        .navbar {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 10px 20px;
-            color: white;
-        }
-        .navbar .logo {
-            font-size: 1.5em;
-        }
-        .navbar .logo :hover{
-            color: #0aff02;
-            transform: scale(1);
-            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
-            transition: all 0.5s ease; /* Fixed typo */
-        }
-        .navbar .menu {
-            display: flex;
-            gap: 20px;
-            font-size: 1.2rem;
-            z-index: 2;
-            background-color: #000000;
-        }
-        .navbar .menu a {
-                font-weight: bold;
-                padding: 5px 10px;
-                text-decoration: none;
-                border: 2px rgba(0, 128, 0, 0) solid;
-
-        }
-        .navbar .menu a:hover {
-            color: #0aff02;
-            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
-            transition: all 0.5s ease; /* Fixed typo */
-            transform: scale(1.3); /* Slightly enlarge the element */
-            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02; /* Add glowing effect */
-        }
-        .navbar .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-        }
-        .navbar .hamburger div {
-            width: 29px;
-            height: 5px;
-            background-color:#00b3ff;
-        }
-        .menu {
-            display: flex;
-        }
-        .hi{
+        transition: all 0.3s ease;
+    }
+       .hi{
             font-size: 80px;
         }
         .sahil{
             font-size: 50px;
             color: #ff6a00;
-
-        }
-
+        }    
+    /* Button Styling */
+    #Home .right .btn {
+        display: inline-block;
+        background-color: #02afff;
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    #Home .right .btn:hover {
+        background-color: #00e5ff;
+        transform: scale(1.05);
+        box-shadow: 0 0 10px #00e5ff;
+    }
         .left{
             justify-content: center;
             margin: 30px;
@@ -153,122 +135,307 @@
         .about{
             padding: 300px;
         }
-
         .sec{
+            padding: 0;
             display: flex;
             justify-content: space-around;
             align-items: center;
         }
-        .skills{
-            font-size: 50px;
-            display: block;
-        }
-        .cls{
-            padding: 10px 10px 100px;
-        }
-        .cls{
-            padding-left: 10%;
-            padding-right: 10%;
-        }
-        .Contacts {
-            justify-items: center;
-            padding: 0px 0px 100px;
-        }
-        .Contacts form {
-            max-width: 70rem;
-            margin: 1rem auto;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        .Contacts form .input-box{
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .box{
-            width: 60%;
-            padding: 15px;
-            font-size: 1rem;
-            color: #00f2ff;
-            background-color: black;
-            border-radius: 0.8rem ;
-            border: 2px solid rgb(0, 204, 255);
-            margin: 6px 0;
-            resize: none;
-        }
-        .btn{
-            bottom: 20px;
-            right: 20px;
-            background-color: #00aaff;
-            color: #fff;
-            border: none;
-            border-radius: 20px;
-            padding: 10px 20px;
-            font-size: 1rem;
-        }
-        .your{
-            padding: 70px;
-        }
-        .foot a{   color: #000000;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline;
-            padding: 5px 10px;
-        }
-        .footer a :hover{
-            color: #0aff02; /* Change to a vibrant green */
-            transform: scale(1.1); /* Slightly enlarge the element */
-            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02; /* Add glowing effect */
-            transition: 0.5sec ease;
-        }
-
 /* Fix glowing hover effect (p:hover) */
-        .skills:hover {
-            color: #0aff02;
-            transform: scale(1);
-            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
-            transition: all 0.5s ease; /* Fixed typo */
-        }
-
         img{
             height: 400px;
             filter: drop-shadow(0 0 20px #00f2ff);
         }
-        .skills {
-            grid-template-columns: repeat(3, 1fr);
-            font-size: 2rem;
-            padding: 2rem;
-        }
-        .skills :hover {
-            color: #0aff02;
-            transform: scale(1.1);
-            text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
-            transition: all 0.5s ease; /* Fixed typo */
-        }
-    .box {
-        width: 80%;
+#About {
+        padding: 50px 10%;
+        text-align: center;
     }
-    footer { text-align: center; padding: 20px; background: #f8f9fa; }
-        footer a { color: #007BFF; text-decoration: none; }
-        footer a:hover { color: #0aff02; transform: scale(1.1); }
-
-    input:focus, textarea:focus {
-    border-color: #00ff55;
-    box-shadow: 0 0 8px #0aff02;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    #About .skills {
+        font-size: 2.5rem;
+        color: #02afff;
+        text-shadow: 0 0 10px #02afff;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+    #About .title {
+        font-size: 2rem;
+        color: #ff6a00;
+        text-shadow: 0 0 10px #ff6a00;
+        margin-bottom: 20px;
+    }
+    #About .description {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        margin: 10px auto;
+        max-width: 800px;
+        text-align: justify;
+        text-shadow: 0 0 5px #0aff02;
+    }
+    #About .description:hover {
+        transform: scale(1.02);
+        text-shadow: 0 0 10px #00e5ff, 0 0 20px #00e5ff;
+        transition: all 0.3s ease-in-out;
+    }
+    /* Skills Section Styles */
+#Skills {
+    padding: 50px 10%;
+    text-align: center;
 }
-
-/* For general mobile devices */
-@media (max-width: 680px) {
-    html {
-        font-size: 85%;
+.skills-title {
+    font-size: 2.5rem;
+    color: #02afff;
+    text-shadow: 0 0 8px #02afff;
+    margin-bottom: 20px;
+}
+.skills-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+.skill-category {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(2, 175, 255, 0.3);
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.skill-category h2 {
+    color: #ff6a00;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+.skill-category ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.2rem;
+}
+.skill-category li {
+    margin: 10px 0;
+    color: #ffffff;
+}
+.skill-category:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(2, 175, 255, 0.5);
+}
+.skill-category li:hover {
+    color: #0aff02;
+    text-shadow: 0 0 8px #0aff02;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+ /* Contact Section Styling */
+ #Contact {
+        text-align: center;
+        padding: 20px 0 ;
     }
+    #Contact h1 {
+        font-size: 2.5rem;
+        color: #02afff;
+        margin-bottom: 20px;
+        text-shadow: 0 0 10px #02afff;
+    }
+    #Contact form {
+    background-color: rgb(38, 37, 37);
+        max-width: 700px;
+        margin: 10px 0;
+        padding: 0px 0;
+        border-radius: 8px;
+        box-shadow: 0px 0px 15px rgba(0, 242, 255, 0.5);
+    }
+    .input-box {
+        display: grid;
+        gap: 15px;
+    }
+    .box {
+        color: #00ff55;
+        align-content: center;
+        width: 90%;
+        padding: 10px;
+        margin: 10px ;
+        font-size: 1rem;
+        border: 2px solid #00f2ff;
+        border-radius: 5px;
+        background: transparent;
+        outline: none;
+        transition: all 0.3s ease;
+    }
+    .box:focus {
+        border-color: #0aff02;
+        box-shadow: 0px 0px 10px #0aff02;
+    }
+    .box.file-input {
+        padding: 5px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        color: #00f2ff;
+    }
+    .btn {
+        background-color: #02afff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 20px ;
+        font-size: 1.1rem;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .btn:hover {
+        background-color: #0aff02;
+        transform: scale(1.05);
+        box-shadow: 0 0 10px #0aff02, 0 0 20px #0aff02;
+    }
+    #loading {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        color: #02afff;
+        display: none;
+    }
+    footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 0px;
+    margin: 0;
+    text-align: center;
+    background-color: #fff;
+}
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0px;
+}
+.footer-links {
+    margin-bottom: 15px;
+}
+.footer-links a {
+    color: var(--footer-link-color, #000000);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover {
+    color: #0aff02;
+    text-shadow: 0 0 8px #0aff02, 0 0 16px #0aff02;
+}
+.social-icon {
+    height: 40px;
+    margin: 0 5px;
+    transition: transform 0.3s ease;
+}
+.social-icon:hover {
+    transform: scale(1.1);
+}
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer-bottom p {
+    margin: 10px 0;
+    font-size: 0.8rem;
+}
+.footer-bottom .back-to-top {
+    color: #00aaff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+.footer-bottom .back-to-top:hover {
+    color: #0aff02;
+    text-shadow: 0 0 8px #0aff02;
+}
+/* For devices with screen widths between 425px and 768px */
+@media (min-width: 551px) and (max-width: 768px) {
+    html {
+        font-size: 90%; /* Adjust the base font size for better readability on medium screens */
+    }
+    .navbar {
+        font-size: 85%; /* Adjust navbar font size for better fit on medium screens */
+    }
+    .sec {
+        flex-direction: row; /* Keep items in a row layout */
+        padding: 2rem;
+        text-align: center;
+    }
+    .hi {
+        font-size: 50px; /* Adjust size for medium screens */
+    }
+    .sahil {
+        font-size: 30px; /* Adjust size for medium screens */
+    }
+    #Home .right .btn {
+            font-size: .8rem;
+            padding: 12px 7px;
+        }
+    .skills {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    .footer a {
+        font-size: small;
+        flex-direction: column;
+        text-align: justify;
+        padding: 80%;
+    }
+    img {
+        height: 300px; /* Adjust image height for medium screens */
+        filter: drop-shadow(0 0 20px #00f2ff);
+    }
+    .footer {
+        padding: 40px; /* Adjust footer padding for medium screens */
+    }
+    .sec{
+        padding: 0%;
+    }
+    #About {
+        padding: 30px 5%; /* Adjust About section padding for medium screens */
+    }
+    #About .skills {
+        font-size: 2rem; /* Adjust font size for the skills section */
+        padding: 10px;
+        margin: 0%;
+    }
+    #About .title {
+        font-size: 1.8rem;
+    }
+    #About .description {
+        font-size: 1rem;
+    }
+    #Skills .skills-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .skill-category {
+        width: 100%;
+        max-width: 500px; /* Adjust width for skill categories */
+    }
+}
+/* For general mobile devices */
+@media (max-width: 550px) {
+        html {
+            font-size: 90%; /* Slightly smaller font size for small screens */
+        }
     .navbar{
         font-size: 70%;
     }
     .sec {
         flex-direction: column;
         padding: 2rem;
+        text-align: center;
+    }
+    .right {
+        width: 100%;  /* Ensure content doesn't overflow */
+        text-align: center;
+    }
+    .left {
+        display: block;
+        width: 100%;  /* Make sure the image takes up full width */
         text-align: center;
     }
     .hi{
@@ -278,7 +445,10 @@
         font-size: 290%;
         padding: auto;
     }
-
+    #Home .right .btn {
+            font-size: 1rem;
+            padding: 8px 16px;
+        }
     .skills {
         font-size: 2.5rem;
         text-align: center;
@@ -292,9 +462,8 @@
         font-size: small;
         flex-direction: column;
         text-align: justify;
-        padding: 5px;
-    }
-       
+        padding: 80%;
+    }  
         img{
             height: 250px;
             filter: drop-shadow(0 0 20px #00f2ff);
@@ -310,137 +479,189 @@
     background: #0aff02;
     }
     .footer{
-        padding: 0;
+        padding: 0px;
+        position: absolute;
     }
-    .navbar .menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 50px;
-                right: 50px;
-                border-radius: 5px;
-                padding: 10px;
-                box-shadow: 0px 4px 6px rgb(208, 26, 26);
-            }
-            .navbar .menu.active {
-                display: flex;
-            }
-            .navbar .hamburger {
-                display: flex;
-            }
+    .menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            background-color: var(--navbar-bg, #000);
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .menu.active {
+            display: flex;
+        }
+        .hamburger {
+            display: flex;
+        }
             .box {
         width: 90%; /* Wider input fields */
         }
         form {
         padding: 1rem; /* Adjust form padding */
-
         }
+        .box{
+            padding: 10px 0;
+            margin: 10px 0;
+        }
+        #About {
+            padding: 30px 5%;
+        }
+        #About .skills {
+            font-size: 2rem;
+            padding: 0%;
+            margin: 0   ;
+        }
+        #About .title {
+            font-size: 1.8rem;
+        }
+        #About .description {
+            font-size: 1rem;
+        }
+    }
+    #skills
+    .skills-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-category {
+        width: 100%;
+        max-width: 500px;
+    }
 </style>
 <body class="light-mode">
     
-    <div class="navbar">
-        <div class="logo"><h1>Portfolio</h1></div>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div class="menu">
-            <a href="#Home">Home</a>
-            <a href="#About">About</a>
-            <a href="#Skills">Skills</a>
-            <a href="#Contact">Contact</a>
-        </div>
+   <div class="navbar">
+    <div class="logo"><h1>Portfolio</h1></div>
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
-    
-    <script>
-        function toggleMenu() {
-            const menu = document.querySelector('.menu');
-            menu.classList.toggle('active');
-        }
-        
-    </script>
+    <div class="menu">
+        <a href="#Home" class="nav-link">Home</a>
+        <a href="#About" class="nav-link">About</a>
+        <a href="#Skills" class="nav-link">Skills</a>
+        <a href="#Contact" class="nav-link">Contact</a>
+        <button class="toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">Dark Mode</button>
 
+    </div>
+</div>
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector('.menu');
+        menu.classList.toggle('active');
+    }
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.menu').classList.remove('active');
+    });
+});
+</script>
 <section id="Home">
     <div class="sec">
+        <!-- Left Section with Image -->
         <div class="left">
-            <img src="small sahil.jpg" alt="Portrait of Sahil Upadhyay" loading="lazy">
+            <img src="small sahil.jpg" alt="Portrait of Sahil" loading="lazy">
         </div>
+        <!-- Right Section with Text -->
         <div class="right">
             <h2 class="hi">Hi! I am</h2>
-            <h3 class="sahil"><center>Sahil Upadhyay</center></h3>
+            <h3 class="sahil">Sahil Upadhyay</h3>
             <h2>Welcome to my profile.</h2>
+            <a href="#About" class="btn">Learn More About Me</a>
         </div>
     </div>
-</section><br><br><hr>
-
-<section id="About"><br>
+</section>
+<br><br><hr>
+<section id="About">
     <div class="cls">
         <div class="skills">
-        <b>  About me</b>
-        </div> <br><br><br>
-        <h1 style="color: #02afff;">Web developer</h1> <br>
-        <p style="text-align: left;">Hello! I’m Sahil Upadhyay, a second-year BSc IT student passionate about technology and web development. My journey into the world of programming began with curiosity, and now it’s a growing passion.
-
+            <b>About Me</b>
+        </div>
+        <br><br><br>
+        <h1 class="title">Web Developer</h1>
+        <br>
+        <p class="description">
+            Hello! I’m Sahil Upadhyay, a second-year BSc IT student passionate about technology and web development. My journey into the world of programming began with curiosity, and now it’s a growing passion.
+        </p>
+        <p class="description">
             As a beginner web developer, I specialize in creating clean, responsive, and user-friendly websites. I have experience with HTML, CSS, and JavaScript and am eager to learn more advanced technologies.
-            
+        </p>
+        <p class="description">
             I’m actively building projects that demonstrate my skills and problem-solving abilities. Through my portfolio, I aim to connect with individuals and businesses looking for creative and functional websites.
-            
+        </p>
+        <p class="description">
             I believe in continuous learning and staying updated with the latest trends in web development. My goal is to grow as a developer while delivering value to my clients.
-            
+        </p>
+        <p class="description">
             Feel free to explore my portfolio, and don’t hesitate to reach out if you’d like to work together!
-            </p>
+        </p>
+    </div>
+</section>
+<hr>
+<section id="Skills">
+    <div class="cls">
+        <h1 class="skills-title">Skills</h1>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h2>Technical Skills</h2>
+                <ul>
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>React, Node.js</li>
+                    <li>Python, Django</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h2>Soft Skills</h2>
+                <ul>
+                    <li>Teamwork</li>
+                    <li>Problem-Solving</li>
+                    <li>Adaptability</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h2>Certifications</h2>
+                <ul>
+                    <li>Certified Web Developer - XYZ Academy</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </section><hr>
-
-
-
-<section id="Skills" ><br>
-    <div class="cls" style="padding-left: 10%;">
-        <h1 class="skills">Skills</h1><br>
-        <h1 style="color: #02afff;">Technical Skills</h1> <br>       <ul>
-            <li>HTML, CSS, JavaScript</li>
-            <li>React, Node.js</li>
-            <li>Python, Django</li>
-        </ul><br><br>
-        <h1 style="color: #02afff;">Soft Skills</h1> <br>    <ul>
-            <ul>
-            <li>Teamwork</li>
-            <li>Problem-Solving</li>
-            <li>Adaptability</li>
-        </ul><br><br>
-        <h1 style="color: #02afff;">Certifications</h1> <br>       <ul>
-            <ul>
-            <li>Certified Web Developer - XYZ Academy</li>
-        </ul>
-    </div>
-</section><hr>
-
-
 <section id="Contact">
     <div class="Contacts">
         <h1 class="skills">Contact Me</h1>
-        <form action="/submit" method="POST">
-            <div class="input-box">
-                <input class="box" type="text" name="fullname" placeholder="Full Name" required>
-                <input class="box" type="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-                <input class="box" type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{10}" title="Enter a valid 10-digit phone number">
-                <input class="box" type="text" name="subject" placeholder="Subject" required>
-                <textarea class="box" name="message" placeholder="Your Message" required></textarea>
-                <input type="file" name="attachment" class="box" accept=".pdf,.docx,.jpg,.png">
-
-            </div>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-        <div id="loading" style="display:none;">Submitting...</div>
+        <center>
+            <form action="/submit" method="POST">
+                <div class="input-box">
+                   <center>
+                    <input class="box" type="text" name="fullname" placeholder="Full Name" required>
+                    <input class="box" type="email" name="email" placeholder="Email" required>
+                    <input class="box" type="tel" name="phone" placeholder="Phone Number" required>
+                    <input class="box" type="text" name="subject" placeholder="Subject" required>
+                    <textarea class="box" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    <input type="file" name="attachment" class="box file-input" accept=".pdf,.docx,.jpg,.png" title="Accepted file types: .pdf, .docx, .jpg, .png">
+                </center>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </center>
+        <div id="loading" aria-live="polite" style="display:none;">Submitting...</div>
     </div>
+</section>
 <script>
 document.querySelector('form').addEventListener('submit', function (e) {
     document.getElementById('loading').style.display = 'block';
 });
-</script>
-
-        
+</script>        
     </div>
     <script>
       document.querySelector('form').addEventListener('submit', function (e) {
@@ -454,58 +675,46 @@ document.querySelector('form').addEventListener('submit', function (e) {
         isValid = false;
         alert("Please enter a valid email address.");
     }
-
     // Validate phone number
     const phone = document.querySelector('input[name="phone"]');
     if (!phone.value.match(/^\d{10}$/)) {
         isValid = false;
         alert("Please enter a valid 10-digit phone number.");
     }
-
     // If all fields are valid, submit the form
     if (isValid) {
         alert("Thank you for your message! I'll get back to you soon.");
         this.submit(); // Submit the form
     }
 });
-
-
-
     </script>
 </section><hr>
-
-
-
-
 <footer>
-    <div class="navbar">
-        <div class="foot">
+    <div class="footer-container">
+       <div class="footer-links">
             <a href="#Home">Home</a>
             <a href="#About">About</a>
             <a href="#Skills">Skills</a>
             <a href="#Contact">Contact</a>
         </div>
+        <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/sahil-upadhyay-3346b927a" target="_blank" aria-label="LinkedIn">
+                <img src="https://cdn-icons-png.freepik.com/256/2335/2335380.png?ga=GA1.1.1868501678.1734706572&semt=ais_hybrid" alt="LinkedIn" class="social-icon">
+            </a>
+            <a href="https://github.com/sahilupadhyay123" target="_blank" aria-label="GitHub">
+                <img src="https://cdn-icons-png.freepik.com/256/3291/3291695.png?ga=GA1.1.1868501678.1734706572&semt=ais_hybrid" alt="GitHub" class="social-icon">
+            </a>
+            <a href="https://instagram.com/iam.saahiil" target="_blank" aria-label="Instagram">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon">
+            </a>
+     </div>
+
+        <div class="footer-bottom">
+            <p style="color: black;">&copy; 2024 Sahil Upadhyay. Designed with ❤️</p>
+            <a href="#top" class="back-to-top">Back to Top</a>
+        </div>
     </div>
-    <div style="text-align: center; margin-top: 5px;">
-        <!-- Social Media Icons -->
-        <a href="https://www.linkedin.com/in/sahil-upadhyay-3346b927a" target="_blank" style="margin: 0 10px;">
-            <img src="https://www.pagetraffic.com/blog/wp-content/uploads/2022/09/linkedin-logo-icon-3D.png" alt="LinkedIn" style="height: 35px;">
-        </a>
-        <a href="https://github.com/sahilupadhyay123" target="_blank" style="margin: 0 10px;">
-            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" style="height: 30px;">
-        </a>
-        <a href="https://instagram.com/iam.saahiil" target="_blank" style="margin: 0 10px;">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Twitter" style="height: 30px;">
-        </a>
-    </div>
-    <br>
-    <button class="toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">Dark Mode</button>
-    <p style="color: #000000;">&copy; 2024 Sahil Upadhyay. Designed with ❤️</p>
-    <a href="#top">Back to Top</a><br> <br>
 </footer>
-
-
-
 <script>
     function toggleDarkMode() {
     const body = document.body;
@@ -515,18 +724,14 @@ document.querySelector('form').addEventListener('submit', function (e) {
     localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
     button.textContent = isDarkMode ? "Light Mode" : "Dark Mode";   
 }
-
-
 window.onload = () => {
     document.body.classList.add("dark-mode"); // Force Dark Mode by default
     document.querySelector(".toggle-btn").textContent = "Light Mode"; // Update button text
 };
-
 </script>
 <meta name="keywords" content="Sahil Upadhyay, Web Developer, Portfolio, HTML, CSS, JavaScript, React, Node.js, Python, Django">
 <meta name="description" content="Sahil Upadhyay is a web developer specializing in HTML, CSS, JavaScript, React, and Node.js. Explore my portfolio to learn more about my skills and projects.">
 <meta name="author" content="Sahil Upadhyay">
-
 </body>
 </html>
 <script async data-explicit-opt-in="true" data-cookie-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
